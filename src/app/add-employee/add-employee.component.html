@@ -1,0 +1,26 @@
+<div class="col-md-6">
+    <h2 class="text-center">Add Employee</h2>
+  <form (ngSubmit)="createEmployee()">
+ 
+  <div>
+    <input type="number" placeholder="enter id" id="id" name="id" [(ngModel)]="emp.id"  class="form-control" >
+  </div>
+  
+  <div>
+    <input type="text" placeholder="enter name" id="name" name="name" [(ngModel)]="emp.name"  class="form-control" >
+  </div>
+ 
+  <div>
+    <input type="text" placeholder="enter salary" id="salary" name="salary" [(ngModel)]="emp.salary"   class="form-control" >
+  </div>
+ 
+  <div>
+    <input type="text" placeholder="enter dept" id="dept" name="dept" [(ngModel)]="emp.dept"   class="form-control" >
+  </div>
+ 
+  <div>
+  <input type="submit" value="Add employee" class="btn btn-danger">
+</div>
+</form>
+   
+</div>

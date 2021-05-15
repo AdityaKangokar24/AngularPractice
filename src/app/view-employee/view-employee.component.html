@@ -1,0 +1,49 @@
+<h1>Employee Info</h1>
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Dept</th>
+      <th>Delete Action</th>
+      <th>Update Action</th>
+    </tr>
+    <tr *ngFor="let emp of employees">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.salary }}</td>
+      <td>{{ emp.dept }}</td>
+      <td><button class="btn btn-danger" (click)="deleteEmployee(emp)"> Delete Employee</button></td>
+      <td><button class="btn btn-danger" (click)="editEmployee(emp)"> Update Employee</button></td>
+    </tr>
+  </table>
+
+  <div class="col-md-6" *ngIf=editemployee>
+    <h1>Update Employee</h1>
+  <form   #frm="ngForm" (ngSubmit)="updateEmployee(emp)" >
+ 
+    <div>
+    <input type="number" placeholder="enter id" id="id"  name="eid" [(ngModel)]=emp.id  #eid="ngModel" class="form-control" required>
+  </div>
+  <div class="alert alert-danger" *ngIf="eid.invalid&&eid.touched">id should not be empty</div>
+  
+  <div>
+    <input type="text" placeholder="enter name" id="name" name="name" [(ngModel)]="emp.name" #name="ngModel" class="form-control" required>
+  </div>
+  <div class="alert alert-danger" *ngIf="name.invalid&&name.touched">name cannot be empty</div>
+ 
+  <div>
+    <input type="text" placeholder="enter salary" id="salary" name="salary" [(ngModel)]="emp.salary" #esalary="ngModel"  class="form-control" >
+  </div>
+ 
+  <div>
+    <input type="text" placeholder="enter dept" id="dept" name="dept" [(ngModel)]="emp.dept" #dept="ngModel"   class="form-control" >
+  </div>
+ 
+  <div>
+  <input type="submit" value="update employee"  [disabled]="!frm.valid"  class="btn btn-danger">
+</div>
+</form>
+   
+</div>
+
